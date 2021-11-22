@@ -17,96 +17,85 @@
       <div class="intro-buttons">
         <button class="btn-menu btn-start" onclick="goToGame()">Start</button>
         <button class="btn-menu btn-high-score" onclick="openHighScore()">High Scores</button>
-        <button class="btn-menu btn-instructions">How to Play</button>
+        <button class="btn-menu btn-instructions" onclick="openInstructions()">How to Play</button>
       </div>
     </div>
   </div>
 
-  <div class="instructions">
-    <!-- make this grid -->
-    <div class="instruction-container">
-      <h1>How to play</h1>
-      <div>
-
-        <div class="instruction-carousel">
-          <div class="slides">
-            <div class="slide">
-              <img class="slide-image" src="images/test.png" alt="">
-              <p class="slide-text">One of the 4 squares will light up and make a sound</p>
+  <div class="instructions modal modal-overlay hide-modal">
+    <div class="main-container modal-container">
+      <div class="title">Title</div>
+      <div class="carousel">
+        <div class="carousel__slides">
+          <div class="carousel__slide current-slide">
+            <div class="carousel__image-container ">
+              <img class="carousel__slide-image" src="images/test.png" alt="">
             </div>
-            <div class="slide">
-              <img class="slide-image" src="images/test.png" alt="">
-              <p class="slide-text">Press the square that was lit up</p>
-            </div>
-            <div class="slide">
-              <img class="slide-image" src="images/test.png" alt="">
-              <p class="slide-text">Another square will light up</p>
-            </div>
-            <div class="slide">
-              <img class="slide-image" src="images/test.png" alt="">
-              <p class="slide-text">Press the orginal square and then the new square. The sequence will get longer and
-                longer</p>
-            </div>
-            <div class="slide">
-              <img class="slide-image" src="images/test.png" alt="">
-              <p class="slide-text">If you make a mistake replaying the sequence, the game will end. Try to get a high
-                score. Good luck!</p>
-            </div>
+            <p class="carousel__slide-text">One of the 4 squares will light up and make a sound</p>
           </div>
-
-
-          <a class="prev">&#10094;</a>
-          <a class="next">&#10095;</a>
-
-          <div class="carousel-dots" style="text-align:center">
-            <span class="dot" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-            <span class="dot" onclick="currentSlide(3)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-            <span class="dot" onclick="currentSlide(3)"></span>
+          <div class="carousel__slide">
+            <div class="carousel__image-container">
+              <img class="carousel__slide-image" src="images/test2.png" alt="">
+            </div>
+            <p class="carousel__slide-text">One of the 4 squares will light up and make a sound</p>
+          </div>
+          <div class="carousel__slide">
+            <div class="carousel__image-container">
+              <img class="carousel__slide-image" src="images/test.png" alt="">
+            </div>
+            <p class="carousel__slide-text">One of the 4 squares will light up and make a sound</p>
           </div>
         </div>
-      </div>
-      <button class="btn-close">Close</button>
-    </div>
+        <div class="carousel__nav">
+          <div class="carousel__indicator current-slide"></div>
+          <div class="carousel__indicator"></div>
+          <div class="carousel__indicator"></div>
+        </div>
 
+        <button class="carousel__button carousel__button--left hidden">&#10094;</button>
+        <button class="carousel__button carousel__button--right">&#10095;</button>
+      </div>
+      <div class="buttons">
+        <button class="btn-menu" onclick="closeInstructions()">Close</button>
+      </div>
+    </div>
   </div>
 
   <div class="game-over-modal modal modal-overlay hide-modal">
-    <div class="game-over-container modal-container">
+    <div class="game-over-container modal-container modal-rounded modal-border">
       <div class="game-over-header">
         <h1>Game Over</h1>
         <p>Score</p>
-        <p id="score">99</p>
+        <p id="score"></p>
       </div>
 
       <div class="game-over-buttons">
-        <button onclick="tryAgain()">Try Again</button>
-        <button onclick="goToMainMenu()">Main Menu</button>
+        <button class="btn-menu" onclick="tryAgain()">Try Again</button>
+        <button class="btn-menu" onclick="goToMainMenu()">Main Menu</button>
       </div>
     </div>
   </div>
 
-  <div class="high-score-entry modal modal-overlay">
-    <div class="modal-container">
+  <div class="high-score-entry modal modal-overlay hide-modal">
+    <div class="modal-container high-score-entry-container modal-rounded modal-border">
       <h2>New High Score</h2>
       <p>Please enter your name</p>
       <input type="text" name="name" id="name">
-      <button id="enter-high-score" onclick="setNewHighScore(level)">Enter</button>
+      <button id="enter-high-score" class="btn-menu" onclick="setNewHighScore(score)">Enter</button>
     </div>
   </div>
 
   <div class="high-score modal modal-overlay hide-modal">
-    <div class="high-score-container modal-container">
+    <div class="high-score-container modal-container modal-rounded modal-border">
       <h1>High Scores</h1>
       <div class="high-score-div"></div>
-      <button onclick="closeHighScore()">Close</button>
+      <button class="btn-menu" onclick="closeHighScore()">Close</button>
     </div>
   </div>
 
   <!-- need to make a layout for portrait on phone -->
   <div class="game-area">
-    <h1 id="level-title">Press A Key to Start</h1>
+    <h1 id="level-title">Score 0</h1>
     <div class="container">
       <div type="button" id="green" class="btn green"></div>
       <div type="button" id="red" class="btn red"></div>
@@ -120,6 +109,7 @@
   <script src="js/highscore.js"></script>
   <script src="js/utilities.js"></script>
   <script src="js/sounds.js"></script>
+  <script src="js/carousel.js"></script>
 </body>
 
 </html>

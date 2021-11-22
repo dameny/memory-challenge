@@ -37,7 +37,6 @@ img {
 }
 
 .intro {
-  /* display: none; */
   position: fixed;
   width: 100%;
   height: 100%;
@@ -56,18 +55,17 @@ img {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: aqua;
-  /* background-color: #011f3f; */
+  background-color: #011f3f;
 }
 
 .modal {
-  /* display: none; */
   position: fixed;
   width: 100%;
   height: 100%;
   z-index: 1;
   top: 0;
   left: 0;
+  font-family: 'Press Start 2P', cursive;
 }
 
 .modal-overlay {
@@ -79,11 +77,47 @@ img {
   width: 80%;
   height: 80%;
   background-color: greenyellow;
+  box-sizing: border-box;
+}
+
+.modal-rounded {
+  border-radius: 32px;
+}
+
+.modal-border {
+  border: solid 10px #000;
+}
+
+#name {
+  border: solid 6px black;
+  border-radius: 6px;
+  font-size: 20px;
+  font-family: 'Press Start 2P', cursive;
+  width: 50%;
+  text-align: center;
 }
 
 .high-score {
-  /* display: none; */
   z-index: 2;
+}
+
+.high-score-div {
+  overflow: auto;
+  display: block;
+}
+
+.high-score-table {
+  width: 100%;
+  text-align: left;
+  padding: 0 20px;
+}
+
+.high-score-table td.score {
+  text-align: right;
+}
+
+.high-score-entry-container {
+  height: auto;
 }
 
 .game-over-modal {
@@ -100,37 +134,6 @@ img {
   margin-top: 0;
 }
 
-.instructions {
-  display: none;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: rgba(12, 14, 14, 0.425);
-  font-family: 'Roboto', sans-serif;
-  text-align: left;
-}
-
-.instruction-container {
-  margin: auto;
-  width: 80%;
-  height: 80%;
-  background-color: aqua;
-  /* overflow: auto; */
-  border: black 5px solid;
-  border-radius: 15px;
-}
-
-.instruction-grid {
-  display: grid;
-  overflow: auto;
-  height: 60%;
-  grid-template-columns: 1fr 2fr;
-  /* grid-template-rows: 100px; */
-}
-
 #level-title {
   font-family: 'Press Start 2P', cursive;
   font-size: 3rem;
@@ -139,26 +142,8 @@ img {
 }
 
 /* carousel */
-.instruction-carousel {
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-  height: 500px;
-}
 
-.slides {
-  overflow: hidden;
-  /* display: flex;
-  flex-wrap: wrap;
-  justify-content: center; */
-  position: relative;
-}
-
-.slide {
-  display: inline-block;
-  /* width: 200px; */
-  height: 500px;
-}
+/* game */
 
 .container {
   display: grid;
@@ -226,4 +211,93 @@ img {
     height: 200px;
     width: 200px;
   }
+}
+
+/* carousel */
+.main-container {
+  width: 100%;
+  height: 100%;
+  /* margin: auto; */
+  position: relative;
+  background-color: rgb(182, 225, 65);
+  display: grid;
+  grid-template-rows: 100px auto 100px;
+  padding: 0 15px;
+}
+
+.carousel {
+  position: relative;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+.carousel__slides {
+  height: 90%;
+  position: relative;
+  transition: transform ease-in 250ms;
+}
+
+.carousel__slide {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: inline;
+}
+
+.carousel__image-container {
+  position: relative;
+  height: 80%;
+  width: 100%;
+}
+
+.carousel__slide-image {
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.carousel__button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.carousel__button--left {
+  left: 0;
+  /* padding-left: 30px; */
+}
+
+.carousel__button--right {
+  right: 0;
+  /* padding-right: 30px; */
+}
+
+.carousel__nav {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  height: 10%;
+}
+
+.carousel__indicator {
+  border: 0;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  background-color: rgba(0, 0, 0, 0.3);
+  margin: 0 12px;
+  /* cursor: pointer; */
+}
+
+.carousel__indicator.current-slide {
+  background: rgba(0, 0, 0, 0.75);
 }

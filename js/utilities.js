@@ -17,6 +17,7 @@ function openHighScore() {
 }
 
 function closeHighScore() {
+  $('.no-high-scores').remove();
   $('.high-score-table').remove();
   $('.high-score').addClass('hide-modal');
 }
@@ -35,6 +36,15 @@ function openGameOver() {
 
 function closeGameOver() {
   $('.game-over-modal').addClass('hide-modal');
+}
+
+function openInstructions() {
+  $('.instructions').removeClass('hide-modal');
+  resizeCarousel();
+}
+
+function closeInstructions() {
+  $('.instructions').addClass('hide-modal');
 }
 
 function showGameOverScreen(score) {

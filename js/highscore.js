@@ -46,12 +46,20 @@ function compareHighScores(a, b) {
 function getHighScoreTable() {
   const highScores = getHighScores();
   console.log(highScores);
-  const table = $('<table class="high-score-table"</table>');
+
+  if (highScores.length === 0) {
+    const noHighScoreMsg = $(
+      '<p class="no-high-scores">No high scores set yet</p>'
+    );
+    return noHighScoreMsg;
+  }
+
+  const table = $('<table class="high-score-table"></table>');
   const scoreElements = [];
 
   for (const score of highScores) {
     scoreElements.push(
-      `<tr><td>${score.name}</td><td>${score.score}</td></tr>`
+      `<tr><td class="name">${score.name}</td><td class="score">${score.score}</td></tr>`
     );
   }
 
