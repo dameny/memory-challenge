@@ -68,4 +68,5 @@ function resetGame() {
   patternIndex = 0;
   score = 0;
   gamePattern = [];
+  updateScore(score);
 }
