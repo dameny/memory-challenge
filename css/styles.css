@@ -73,11 +73,14 @@ img {
 }
 
 .modal-container {
-  margin: auto;
+  margin: 0 auto;
   width: 80%;
   height: 80%;
   background-color: greenyellow;
   box-sizing: border-box;
+  top: 50%;
+  transform: translateY(-50%);
+  position: relative;
 }
 
 .modal-rounded {
