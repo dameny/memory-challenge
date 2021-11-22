@@ -42,6 +42,42 @@ function showGameOverScreen(score) {
   $('#score').text(score);
 }
 
+function updateScore(score) {
+  $('#level-title').text('Score ' + score);
+}
+
+function animateSound(button) {
+  button
+    .animate(
+      {
+        opacity: '50%',
+      },
+      'fast'
+    )
+    .animate(
+      {
+        opacity: '100%',
+      },
+      'fast'
+    );
+}
+
+function animatePress(button) {
+  button.addClass('pressed');
+
+  setTimeout(function () {
+    button.removeClass('pressed');
+  }, 100);
+}
+
+function animateGameOver() {
+  $('body').addClass('game-over');
+
+  setTimeout(function () {
+    $('body').removeClass('game-over');
+  }, 250);
+}
+
 function setNewHighScore(score) {
   const name = $('#name').val();
   checkAndSetHighScore(score, name);
@@ -51,8 +87,7 @@ function setNewHighScore(score) {
 
 function goToGame() {
   closeMainMenu();
-  // should add a slight delay before the start
-  startGame();
+  setTimeout(startGame, 750);
 }
 
 function goToMainMenu() {
