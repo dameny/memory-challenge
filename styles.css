@@ -1,13 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto&display=swap');
+
 body {
+  margin: 0;
   text-align: center;
   background-color: #011f3f;
 }
 
+img {
+  width: 100%;
+  height: auto;
+}
+
+.btn-menu {
+  background-color: red;
+  color: white;
+  border: solid 4px black;
+  border-radius: 30px;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 16px;
+  display: block;
+  font-family: 'Press Start 2P', cursive;
+  width: 70%;
+  margin: 25px auto;
+}
+
+.btn-close {
+  background-color: red;
+  color: white;
+  border: solid 4px black;
+  border-radius: 30px;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 25px;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.intro {
+  /* display: none; */
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgba(12, 14, 14, 0.425);
+  font-family: 'Press Start 2P', cursive;
+}
+
+.intro-container {
+  margin: auto;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: aqua;
+  /* background-color: #011f3f; */
+}
+
+.modal {
+  /* display: none; */
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  top: 0;
+  left: 0;
+}
+
+.modal-overlay {
+  background-color: rgba(12, 14, 14, 0.425);
+}
+
+.modal-container {
+  margin: auto;
+  width: 80%;
+  height: 80%;
+  background-color: greenyellow;
+}
+
+.high-score {
+  /* display: none; */
+  z-index: 2;
+}
+
+.game-over-modal {
+  font-family: 'Press Start 2P', cursive;
+}
+
+.game-over-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.title {
+  margin-top: 0;
+}
+
+.instructions {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgba(12, 14, 14, 0.425);
+  font-family: 'Roboto', sans-serif;
+  text-align: left;
+}
+
+.instruction-container {
+  margin: auto;
+  width: 80%;
+  height: 80%;
+  background-color: aqua;
+  /* overflow: auto; */
+  border: black 5px solid;
+  border-radius: 15px;
+}
+
+.instruction-grid {
+  display: grid;
+  overflow: auto;
+  height: 60%;
+  grid-template-columns: 1fr 2fr;
+  /* grid-template-rows: 100px; */
+}
+
 #level-title {
-  font-family: "Press Start 2P", cursive;
+  font-family: 'Press Start 2P', cursive;
   font-size: 3rem;
   margin: 5%;
   color: #fef2bf;
+}
+
+/* carousel */
+.instruction-carousel {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 500px;
+}
+
+.slides {
+  overflow: hidden;
+  /* display: flex;
+  flex-wrap: wrap;
+  justify-content: center; */
+  position: relative;
+}
+
+.slide {
+  display: inline-block;
+  /* width: 200px; */
+  height: 500px;
 }
 
 .container {
@@ -56,7 +206,15 @@ body {
   background-color: grey;
 }
 
-@media (min-width: 500px) {
+.hide-modal {
+  display: none;
+}
+
+.hidden {
+  display: none;
+}
+
+@media screen and (min-width: 500px) {
   .container {
     grid-template-rows: 200px 200px;
     grid-template-columns: 200px 200px;

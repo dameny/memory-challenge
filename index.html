@@ -7,20 +7,119 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Simon</title>
   <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+  <!-- <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet"> -->
 </head>
 
 <body>
-  <h1 id="level-title">Press A Key to Start</h1>
-  <div class="container">
-    <div type="button" id="green" class="btn green"></div>
-    <div type="button" id="red" class="btn red"></div>
-    <div type="button" id="yellow" class="btn yellow"></div>
-    <div type="button" id="blue" class="btn blue"></div>
+
+  <div class="intro">
+    <div class=" intro-container">
+      <h1 class="title">Memory Challenge</h1>
+      <div class="intro-buttons">
+        <button class="btn-menu btn-start" onclick="goToGame()">Start</button>
+        <button class="btn-menu btn-high-score" onclick="openHighScore()">High Scores</button>
+        <button class="btn-menu btn-instructions">How to Play</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="instructions">
+    <!-- make this grid -->
+    <div class="instruction-container">
+      <h1>How to play</h1>
+      <div>
+
+        <div class="instruction-carousel">
+          <div class="slides">
+            <div class="slide">
+              <img class="slide-image" src="images/test.png" alt="">
+              <p class="slide-text">One of the 4 squares will light up and make a sound</p>
+            </div>
+            <div class="slide">
+              <img class="slide-image" src="images/test.png" alt="">
+              <p class="slide-text">Press the square that was lit up</p>
+            </div>
+            <div class="slide">
+              <img class="slide-image" src="images/test.png" alt="">
+              <p class="slide-text">Another square will light up</p>
+            </div>
+            <div class="slide">
+              <img class="slide-image" src="images/test.png" alt="">
+              <p class="slide-text">Press the orginal square and then the new square. The sequence will get longer and
+                longer</p>
+            </div>
+            <div class="slide">
+              <img class="slide-image" src="images/test.png" alt="">
+              <p class="slide-text">If you make a mistake replaying the sequence, the game will end. Try to get a high
+                score. Good luck!</p>
+            </div>
+          </div>
+
+
+          <a class="prev">&#10094;</a>
+          <a class="next">&#10095;</a>
+
+          <div class="carousel-dots" style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+          </div>
+        </div>
+      </div>
+      <button class="btn-close">Close</button>
+    </div>
+
+  </div>
+
+  <div class="game-over-modal modal modal-overlay hide-modal">
+    <div class="game-over-container modal-container">
+      <div class="game-over-header">
+        <h1>Game Over</h1>
+        <p>Score</p>
+        <p id="score">99</p>
+      </div>
+
+      <div class="game-over-buttons">
+        <button onclick="tryAgain()">Try Again</button>
+        <button onclick="goToMainMenu()">Main Menu</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="high-score-entry modal modal-overlay hide-modal">
+    <div class="modal-container">
+      <h2>New High Score</h2>
+      <p>Please enter your name</p>
+      <input type="text" name="name" id="name">
+      <button id="enter-high-score" onclick="setNewHighScore(level)">Enter</button>
+    </div>
+  </div>
+
+  <div class="high-score modal modal-overlay hide-modal">
+    <div class="high-score-container modal-container">
+      <h1>High Scores</h1>
+      <div class="high-score-div"></div>
+      <button onclick="closeHighScore()">Close</button>
+    </div>
+  </div>
+
+  <!-- need to make a layout for portrait on phone -->
+  <div class="game-area">
+    <h1 id="level-title">Press A Key to Start</h1>
+    <div class="container">
+      <div type="button" id="green" class="btn green"></div>
+      <div type="button" id="red" class="btn red"></div>
+      <div type="button" id="yellow" class="btn yellow"></div>
+      <div type="button" id="blue" class="btn blue"></div>
+    </div>
   </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="game.js" charset="utf-8"></script>
+  <script src="js/highscore.js"></script>
+  <script src="js/utilities.js"></script>
 </body>
 
 </html>
