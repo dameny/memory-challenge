@@ -22,42 +22,43 @@
     </div>
   </div>
 
-  <div class="instructions modal modal-overlay hide-modal">
-    <div class="main-container modal-container">
-      <div class="title">Title</div>
-      <div class="carousel">
-        <div class="carousel__slides">
-          <div class="carousel__slide current-slide">
-            <div class="carousel__image-container ">
-              <img class="carousel__slide-image" src="images/test.png" alt="">
+  <div class="instructions modal modal-overlay">
+    <div class="modal-container modal-fullscreen">
+      <div class="container-grid">
+        <button class="btn-close" onclick="closeInstructions()">&#10006;</button>
+        <div class="title">How to Play</div>
+        <div class="carousel">
+          <div class="carousel__slides">
+            <div class="carousel__slide current-slide">
+              <div class="carousel__image-container ">
+                <img class="carousel__slide-image" src="images/test.png" alt="">
+              </div>
+              <p class="carousel__slide-text">One of the 4 squares will light up and make a sound</p>
             </div>
-            <p class="carousel__slide-text">One of the 4 squares will light up and make a sound</p>
-          </div>
-          <div class="carousel__slide">
-            <div class="carousel__image-container">
-              <img class="carousel__slide-image" src="images/test2.png" alt="">
+            <div class="carousel__slide">
+              <div class="carousel__image-container">
+                <img class="carousel__slide-image" src="images/test2.png" alt="">
+              </div>
+              <p class="carousel__slide-text">One of the 4 squares will light up and make a sound</p>
             </div>
-            <p class="carousel__slide-text">One of the 4 squares will light up and make a sound</p>
-          </div>
-          <div class="carousel__slide">
-            <div class="carousel__image-container">
-              <img class="carousel__slide-image" src="images/test.png" alt="">
+            <div class="carousel__slide">
+              <div class="carousel__image-container">
+                <img class="carousel__slide-image" src="images/test.png" alt="">
+              </div>
+              <p class="carousel__slide-text">One of the 4 squares will light up and make a sound</p>
             </div>
-            <p class="carousel__slide-text">One of the 4 squares will light up and make a sound</p>
           </div>
-        </div>
-        <div class="carousel__nav">
-          <div class="carousel__indicator current-slide"></div>
-          <div class="carousel__indicator"></div>
-          <div class="carousel__indicator"></div>
-        </div>
+          <div class="carousel__nav">
+            <div class="carousel__indicator current-slide"></div>
+            <div class="carousel__indicator"></div>
+            <div class="carousel__indicator"></div>
+          </div>
 
-        <button class="carousel__button carousel__button--left hidden">&#10094;</button>
-        <button class="carousel__button carousel__button--right">&#10095;</button>
+          <button class="carousel__button carousel__button--left hidden">&#10094;</button>
+          <button class="carousel__button carousel__button--right">&#10095;</button>
+        </div>
       </div>
-      <div class="buttons">
-        <button class="btn-menu" onclick="closeInstructions()">Close</button>
-      </div>
+
     </div>
   </div>
 

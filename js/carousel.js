@@ -4,18 +4,12 @@ const nextButton = $('.carousel__button--right');
 const prevButton = $('.carousel__button--left');
 let slideWidth = 0;
 
-const setPosition = (index, slide) => {
-  console.log(slide);
-  slide.style.left = `${slideWidth * index}px`;
-};
-
 function resizeCarousel() {
-  slideWidth = slides[0].getBoundingClientRect().width;
-  console.log(slideWidth);
-  slides.each(setPosition);
-
   const currentSlide = $('.current-slide');
-  slideCollection.css('transform', `translateX(-${currentSlide.css('left')})`);
+  const currentSlideIndex = slides.index(currentSlide);
+
+  slideWidth = slides[0].getBoundingClientRect().width;
+  slides.first().css('margin-left', `-${currentSlideIndex * slideWidth}px`);
 }
 
 resizeCarousel();
@@ -24,8 +18,9 @@ $(window).resize(resizeCarousel);
 nextButton.bind('click', function () {
   const currentSlide = $('.current-slide');
   const nextSlide = currentSlide.next();
+  const nextSlideIndex = slides.index(nextSlide);
 
-  slideCollection.css('transform', `translateX(-${nextSlide.css('left')})`);
+  slides.first().css('margin-left', `-${nextSlideIndex * slideWidth}px`);
   prevButton.removeClass('hidden');
   currentSlide.removeClass('current-slide');
   nextSlide.addClass('current-slide');
@@ -38,8 +33,9 @@ nextButton.bind('click', function () {
 prevButton.bind('click', function () {
   const currentSlide = $('.current-slide');
   const prevSlide = currentSlide.prev();
+  const prevSlideIndex = slides.index(prevSlide);
 
-  slideCollection.css('transform', `translateX(-${prevSlide.css('left')})`);
+  slides.first().css('margin-left', `-${prevSlideIndex * slideWidth}px`);
   nextButton.removeClass('hidden');
   currentSlide.removeClass('current-slide');
   prevSlide.addClass('current-slide');
