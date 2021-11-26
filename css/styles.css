@@ -36,7 +36,7 @@ img {
   /* position: absolute; */
 
   justify-self: end;
-  align-self: start;
+  align-self: end;
   /* right: 16px;
   top: 16px; */
 }
@@ -110,6 +110,8 @@ img {
   width: 50%;
   text-align: center;
 }
+
+/* High score */
 
 .high-score {
   z-index: 2;
@@ -211,20 +213,6 @@ img {
   display: none;
 }
 
-@media screen and (min-width: 500px) {
-  .container {
-    grid-template-rows: 200px 200px;
-    grid-template-columns: 200px 200px;
-    column-gap: 25px;
-    row-gap: 25px;
-  }
-
-  .btn {
-    height: 200px;
-    width: 200px;
-  }
-}
-
 /* carousel */
 
 .main-container {
@@ -242,6 +230,11 @@ img {
   display: flex;
   flex-direction: column;
   min-height: 100%;
+  margin: 0 15px;
+  gap: 20px;
+
+  box-sizing: border-box;
+  padding: 15px 0;
 }
 
 .carousel {
@@ -253,7 +246,6 @@ img {
 
 .carousel__slides {
   width: 100%;
-  /* height: 200px; */
   overflow-x: hidden;
   overflow-y: hidden;
   position: relative;
@@ -262,7 +254,6 @@ img {
 
 .carousel__slide {
   width: 100%;
-  /* height: 200px; */
   position: relative;
   flex: 1 0 auto;
   transition: margin-left ease-in 250ms;
@@ -270,7 +261,6 @@ img {
 
 .carousel__image-container {
   position: relative;
-  height: 80%;
   width: 100%;
 }
 
@@ -279,6 +269,8 @@ img {
   width: 200px;
   object-fit: cover;
   position: relative;
+  border: solid 10px #000;
+  border-radius: 16px;
 }
 
 .carousel__button {
@@ -292,13 +284,13 @@ img {
 }
 
 .carousel__button--left {
+  top: 100px;
   left: 0;
-  /* padding-left: 30px; */
 }
 
 .carousel__button--right {
+  top: 100px;
   right: 0;
-  /* padding-right: 30px; */
 }
 
 .carousel__nav {
@@ -320,4 +312,41 @@ img {
 
 .carousel__indicator.current-slide {
   background: rgba(0, 0, 0, 0.75);
+}
+
+/* Media Queries */
+
+@media screen and (max-height: 500px) {
+  .carousel__slide-image {
+    height: 126px;
+    width: 126px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .container {
+    grid-template-rows: 200px 200px;
+    grid-template-columns: 200px 200px;
+    column-gap: 25px;
+    row-gap: 25px;
+  }
+
+  .btn {
+    height: 200px;
+    width: 200px;
+  }
+}
+
+@media screen and (min-width: 728px) and (min-height: 500px) {
+  .modal-fullscreen {
+    width: 80%;
+    height: 80%;
+    max-width: 600px;
+    max-height: 800px;
+  }
+
+  .instructions-container {
+    border: solid 10px #000;
+    border-radius: 32px;
+  }
 }

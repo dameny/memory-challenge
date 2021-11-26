@@ -1,4 +1,5 @@
 const slideCollection = $('.carousel__slides');
+const container = $('.container-grid');
 const slides = $('.carousel__slide');
 const nextButton = $('.carousel__button--right');
 const prevButton = $('.carousel__button--left');
@@ -8,7 +9,7 @@ function resizeCarousel() {
   const currentSlide = $('.current-slide');
   const currentSlideIndex = slides.index(currentSlide);
 
-  slideWidth = slides[0].getBoundingClientRect().width;
+  slideWidth = container[0].getBoundingClientRect().width;
   slides.first().css('margin-left', `-${currentSlideIndex * slideWidth}px`);
 }
 
