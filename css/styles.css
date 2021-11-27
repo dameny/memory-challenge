@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto&display=swap');
 
 body {
+  min-height: 100vh;
   margin: 0;
   text-align: center;
   background-color: #011f3f;
@@ -11,56 +12,47 @@ img {
   height: auto;
 }
 
+body,
+button,
+input {
+  font-family: 'Press Start 2P', cursive;
+}
+
+.hidden {
+  display: none;
+}
+
 .btn-menu {
-  background-color: red;
-  color: white;
-  border: solid 4px black;
+  background-color: #ff0000;
+  color: #ffffff;
+  border: solid 4px #000000;
   border-radius: 30px;
   padding: 10px 20px;
   text-align: center;
   font-size: 16px;
   display: block;
-  font-family: 'Press Start 2P', cursive;
   width: 70%;
+  max-width: 250px;
   margin: 25px auto;
 }
 
 .btn-close {
-  background-color: red;
-  color: white;
+  background-color: #ff0000;
+  color: #ffffff;
   padding: 2px 12px 5px 12px;
-  border: 5px solid black;
+  border: 5px solid #000000;
   border-radius: 6px;
-  font-family: 'Press Start 2P', cursive;
   font-size: 24px;
-  /* position: absolute; */
-
-  justify-self: end;
   align-self: end;
-  /* right: 16px;
-  top: 16px; */
 }
 
-.intro {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: rgba(12, 14, 14, 0.425);
-  font-family: 'Press Start 2P', cursive;
+.logo {
+  width: 175px;
+  height: auto;
 }
 
-.intro-container {
-  margin: auto;
-  width: 100%;
-  height: 100%;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background-color: #011f3f;
+.title {
+  margin-top: 0;
 }
 
 .modal {
@@ -70,18 +62,21 @@ img {
   z-index: 1;
   top: 0;
   left: 0;
-  font-family: 'Press Start 2P', cursive;
 }
 
 .modal-overlay {
   background-color: rgba(12, 14, 14, 0.425);
 }
 
+.modal-opaque-overlay {
+  background-color: #011f3f;
+}
+
 .modal-container {
   margin: 0 auto;
   width: 80%;
   height: 80%;
-  background-color: greenyellow;
+  background-color: #adff2f;
   box-sizing: border-box;
   top: 50%;
   transform: translateY(-50%);
@@ -99,22 +94,60 @@ img {
 }
 
 .modal-border {
-  border: solid 10px #000;
+  border: solid 10px #000000;
+}
+
+.hide-modal {
+  display: none;
 }
 
 #name {
-  border: solid 6px black;
+  border: solid 6px #000000;
   border-radius: 6px;
   font-size: 20px;
-  font-family: 'Press Start 2P', cursive;
   width: 50%;
   text-align: center;
 }
 
-/* High score */
+/* Intro Screen */
+
+.intro {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgba(12, 14, 14, 0.425);
+}
+
+.intro-container {
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-color: #011f3f;
+  box-sizing: border-box;
+}
+
+.intro-title {
+  color: #fef2bf;
+}
+
+/* High Score Screen */
 
 .high-score {
   z-index: 2;
+}
+
+.high-score-container {
+  display: grid;
+  grid-template-rows: min-content auto min-content;
+  min-height: 300px;
+  max-height: 475px;
+  max-width: 300px;
 }
 
 .high-score-div {
@@ -132,32 +165,45 @@ img {
   text-align: right;
 }
 
+/* High Score Entry */
+
 .high-score-entry-container {
   height: auto;
+  max-width: 600px;
 }
 
-.game-over-modal {
-  font-family: 'Press Start 2P', cursive;
-}
+/* Game Over Screen*/
 
 .game-over-container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  max-width: 600px;
+  max-height: 600px;
 }
 
-.title {
-  margin-top: 0;
+.game-over-title,
+.game-over-score {
+  font-size: 3rem;
 }
+
+.game-over-score-label {
+  font-size: 1.5rem;
+}
+
+/* Game Area */
 
 #level-title {
-  font-family: 'Press Start 2P', cursive;
   font-size: 3rem;
   margin: 5%;
   color: #fef2bf;
 }
 
-/* Game Area */
+.game-area {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
 
 .container {
   display: grid;
@@ -170,57 +216,48 @@ img {
   row-gap: 15px;
 }
 
-.btn {
+.game-btn {
   display: inline-block;
   box-sizing: border-box;
   height: 125px;
   width: 125px;
-  border: 10px solid black;
+  border: 10px solid #000000;
   border-radius: 20%;
 }
 
 .game-over {
-  background-color: red;
+  background-color: #ff0000;
   opacity: 0.8;
 }
 
 .red {
-  background-color: red;
+  background-color: #c51e1e;
 }
 
 .green {
-  background-color: green;
+  background-color: #359235;
 }
 
 .blue {
-  background-color: blue;
+  background-color: #2e62d1;
 }
 
 .yellow {
-  background-color: yellow;
+  background-color: #f8d612;
 }
 
 .pressed {
-  box-shadow: 0 0 20px white;
-  background-color: grey;
+  box-shadow: 0 0 20px #ffffff;
+  background-color: #808080;
 }
 
-.hide-modal {
-  display: none;
-}
-
-.hidden {
-  display: none;
-}
-
-/* carousel */
+/* Instructions Carousel */
 
 .main-container {
   width: 100%;
   height: 100%;
-  /* margin: auto; */
   position: relative;
-  background-color: rgb(182, 225, 65);
+  background-color: #b6e141;
   display: grid;
   grid-template-rows: 100px auto 100px;
   padding: 0 15px;
@@ -269,7 +306,7 @@ img {
   width: 200px;
   object-fit: cover;
   position: relative;
-  border: solid 10px #000;
+  border: solid 10px #000000;
   border-radius: 16px;
 }
 
@@ -307,7 +344,6 @@ img {
   height: 15px;
   background-color: rgba(0, 0, 0, 0.3);
   margin: 0 12px;
-  /* cursor: pointer; */
 }
 
 .carousel__indicator.current-slide {
@@ -316,14 +352,47 @@ img {
 
 /* Media Queries */
 
-@media screen and (max-height: 500px) {
+@media screen and (min-width: 500px) and (min-height: 360px) {
+  .logo {
+    width: 225px;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 700px) and (max-height: 380px) {
+  #level-title {
+    font-size: 2rem;
+    flex: 0 1 min-content;
+  }
+
+  .intro-title-section {
+    flex: 0 1 min-content;
+  }
+}
+
+@media screen and (max-height: 449.9px) {
+  .game-area {
+    flex-direction: row;
+    margin: auto;
+  }
+}
+
+@media screen and (max-height: 549.9px) {
+  .intro-container {
+    flex-direction: row;
+    padding: 1.5rem;
+    justify-content: space-evenly;
+  }
+}
+
+@media screen and (max-height: 599.9px) {
   .carousel__slide-image {
     height: 126px;
     width: 126px;
   }
 }
 
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 500px) and (min-height: 650px) {
   .container {
     grid-template-rows: 200px 200px;
     grid-template-columns: 200px 200px;
@@ -331,7 +400,7 @@ img {
     row-gap: 25px;
   }
 
-  .btn {
+  .game-btn {
     height: 200px;
     width: 200px;
   }
@@ -346,7 +415,7 @@ img {
   }
 
   .instructions-container {
-    border: solid 10px #000;
+    border: solid 10px #000000;
     border-radius: 32px;
   }
 }

@@ -1,10 +1,10 @@
-var buttonColours = ['red', 'blue', 'green', 'yellow'];
-var gamePattern = [];
-var started = false;
-var score = 0;
-var patternIndex = 0;
+const buttonColours = ['red', 'blue', 'green', 'yellow'];
+let gamePattern = [];
+let started = false;
+let score = 0;
+let patternIndex = 0;
 
-$('.btn').click(function () {
+$('.game-btn').click(function () {
   if (started) {
     const button = $(this);
     playButtonSound(button);
@@ -14,8 +14,8 @@ $('.btn').click(function () {
 });
 
 function nextSequence() {
-  var randomNumber = Math.floor(Math.random() * 4);
-  var buttonColor = buttonColours[randomNumber];
+  const randomNumber = Math.floor(Math.random() * 4);
+  const buttonColor = buttonColours[randomNumber];
 
   gamePattern.push(buttonColor);
 

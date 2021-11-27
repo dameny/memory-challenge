@@ -1,6 +1,6 @@
 function checkAndSetHighScore(score, name) {
   if (!isHighScore(score)) return;
-  console.log('Score high enough');
+
   const highScores = getHighScores();
   highScores.push({
     name,
@@ -26,17 +26,15 @@ function isHighScore(score) {
   // Checks if score is higher than the lowest
   const highScore = getHighScores();
 
+  if (score < 1) return false;
   if (highScore.length < 10) return true;
-  console.log('High score list full');
   if (score > highScore[9].score) return true;
-  console.log('Was not a high score');
 
   return false;
 }
 
 function initHighScore() {
   localStorage.setItem('high-scores', JSON.stringify([]));
-  console.log('High score initialized');
 }
 
 function compareHighScores(a, b) {

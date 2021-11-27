@@ -12,8 +12,11 @@
 <body>
 
   <div class="intro">
-    <div class=" intro-container">
-      <h1 class="title">Memory Challenge</h1>
+    <div class="intro-container">
+      <div class="intro-title-section">
+        <h1 class="title intro-title">Memory Challenge</h1>
+        <img class="logo" src="images/brain.png" alt="brain">
+      </div>
       <div class="intro-buttons">
         <button class="btn-menu btn-start" onclick="goToGame()">Start</button>
         <button class="btn-menu btn-high-score" onclick="openHighScore()">High Scores</button>
@@ -22,52 +25,72 @@
     </div>
   </div>
 
-  <div class="instructions modal modal-overlay">
+  <div class="instructions modal modal-overlay hide-modal">
     <div class="instructions-container modal-container modal-fullscreen">
       <div class="container-grid">
         <button class="btn-close" onclick="closeInstructions()">&#10006;</button>
-        <h1 class="title">How to Play</h1>
+        <h1 class="title instructions-title">How to Play</h1>
         <div class="carousel">
           <div class="carousel__slides">
             <div class="carousel__slide current-slide">
               <div class="carousel__image-container ">
-                <img class="carousel__slide-image" src="images/test.png" alt="">
+                <img class="carousel__slide-image" src="images/instructions/2 - First Light.png" alt="">
               </div>
               <p class="carousel__slide-text">One of the 4 squares will light up and make a sound</p>
             </div>
             <div class="carousel__slide">
               <div class="carousel__image-container">
-                <img class="carousel__slide-image" src="images/test2.png" alt="">
+                <img class="carousel__slide-image" src="images/instructions/3 - First Press.png" alt="">
               </div>
-              <p class="carousel__slide-text">One of the 4 squares will light up and make a sound</p>
+              <p class="carousel__slide-text">Press the square that was lit up</p>
             </div>
             <div class="carousel__slide">
               <div class="carousel__image-container">
-                <img class="carousel__slide-image" src="images/test.png" alt="">
+                <img class="carousel__slide-image" src="images/instructions/4 - Second Light.png" alt="">
               </div>
-              <p class="carousel__slide-text">One of the 4 squares will light up and make a sound</p>
+              <p class="carousel__slide-text">Another square will light up</p>
+            </div>
+            <div class="carousel__slide">
+              <div class="carousel__image-container">
+                <img class="carousel__slide-image" src="images/instructions/5 - Second Turn.png" alt="">
+              </div>
+              <p class="carousel__slide-text">Press the orginal square and then the new square. The sequence will get
+                longer and longer.</p>
+            </div>
+            <div class="carousel__slide">
+              <div class="carousel__image-container">
+                <img class="carousel__slide-image" src="images/instructions/6 - Game Over.png" alt="">
+              </div>
+              <p class="carousel__slide-text">If you make a mistake replaying the sequence, the game will end.</p>
+            </div>
+            <div class="carousel__slide">
+              <div class="carousel__image-container">
+                <img class="carousel__slide-image" src="images/instructions/trophy.png" alt="">
+              </div>
+              <p class="carousel__slide-text">Try to get a high score. Good luck!</p>
             </div>
           </div>
           <div class="carousel__nav">
             <div class="carousel__indicator current-slide"></div>
             <div class="carousel__indicator"></div>
             <div class="carousel__indicator"></div>
+            <div class="carousel__indicator"></div>
+            <div class="carousel__indicator"></div>
+            <div class="carousel__indicator"></div>
           </div>
-
           <button class="carousel__button carousel__button--left hidden">&#10094;</button>
           <button class="carousel__button carousel__button--right">&#10095;</button>
         </div>
       </div>
-
     </div>
   </div>
 
-  <div class="game-over-modal modal modal-overlay hide-modal">
+  <div class="game-over-modal modal modal-opaque-overlay hide-modal">
     <div class="game-over-container modal-container modal-rounded modal-border">
       <div class="game-over-header">
-        <h1>Game Over</h1>
-        <p>Score</p>
-        <p id="score"></p>
+        <h1 class="game-over-title">Game Over</h1>
+        <p class="game-over-score-label">Score</p>
+        <p class="game-over-score" id="score"></p>
       </div>
 
       <div class="game-over-buttons">
@@ -81,8 +104,8 @@
     <div class="modal-container high-score-entry-container modal-rounded modal-border">
       <h2>New High Score</h2>
       <p>Please enter your name</p>
-      <input type="text" name="name" id="name">
-      <button id="enter-high-score" class="btn-menu" onclick="setNewHighScore(score)">Enter</button>
+      <input type="text" name="name" id="name" maxlength="10" size="10">
+      <button type="button" id="enter-high-score" class="btn-menu" onclick="setNewHighScore(score)">Enter</button>
     </div>
   </div>
 
@@ -90,23 +113,22 @@
     <div class="high-score-container modal-container modal-rounded modal-border">
       <h1>High Scores</h1>
       <div class="high-score-div"></div>
-      <button class="btn-menu" onclick="closeHighScore()">Close</button>
+      <button class="btn-menu flex-end" onclick="closeHighScore()">Close</button>
     </div>
   </div>
 
-  <!-- need to make a layout for portrait on phone -->
   <div class="game-area">
     <h1 id="level-title">Score 0</h1>
     <div class="container">
-      <div type="button" id="green" class="btn green"></div>
-      <div type="button" id="red" class="btn red"></div>
-      <div type="button" id="yellow" class="btn yellow"></div>
-      <div type="button" id="blue" class="btn blue"></div>
+      <div type="button" id="green" class="game-btn green"></div>
+      <div type="button" id="red" class="game-btn red"></div>
+      <div type="button" id="yellow" class="game-btn yellow"></div>
+      <div type="button" id="blue" class="game-btn blue"></div>
     </div>
   </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="js/game.js" charset="utf-8"></script>
+  <script src="js/game.js"></script>
   <script src="js/highscore.js"></script>
   <script src="js/utilities.js"></script>
   <script src="js/sounds.js"></script>
